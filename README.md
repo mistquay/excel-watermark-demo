@@ -28,7 +28,51 @@ cd D:\project\java\excel-watermark-demo
 & "$env:JAVA_HOME\bin\java.exe" -jar target/excel-watermark-demo-1.0.0.jar
 ```
 
-服务仅监听本机 `127.0.0.1`。普通运行不需要安装 Microsoft Excel；下面的真实客户端验收脚本才需要 Excel。
+本地运行默认仅监听 `127.0.0.1`，可以通过 `SERVER_ADDRESS` 修改。普通运行不需要安装 Microsoft Excel；下面的真实客户端验收脚本才需要 Excel。
+
+## Docker 镜像与 GitHub Actions
+
+将本工程作为 GitHub 仓库推送后，`.github/workflows/docker-publish.yml` 会自动执行，也可以在 Actions 页面手动运行：
+
+1. 构建时运行 Maven 的 `verify`，包含单元测试。
+2. 分别构建并启动 `linux/amd64`（x64）和 `linux/arm64` 镜像，检查中文字体、页面、静态资源、上传解析、PNG 水印预览和三种模式的 Excel 下载。
+3. 两个架构均通过后，发布多架构镜像到 `ghcr.io/<GitHub用户或组织>/<仓库名>`，镜像路径自动转为小写。
+
+工作流使用 GitHub 自带的 `GITHUB_TOKEN` 和 `packages: write` 权限，不需要额外配置发布密钥。
+
+| 推送内容 | 生成的镜像标签 |
+|---|---|
+| 默认分支 | `latest`、`branch-<分支名>`、`sha-<完整提交SHA>` |
+| 其他分支 | `branch-<分支名>`、`sha-<完整提交SHA>` |
+| Git 标签，例如 `v1.0.0` | `v1.0.0`、`sha-<完整提交SHA>` |
+
+分支名中的 `/` 等字符会由 metadata-action 自动规范化。所有标签都指向同时包含两个架构的镜像索引，Docker 拉取时自动选择对应架构。
+
+镜像只暴露 **`18092/tcp` 一个端口**，页面和全部接口都由同一个 Spring Boot 进程提供，不依赖额外的前端服务、数据库或 Microsoft Excel。容器默认监听 `0.0.0.0`，内置中文字体、非 root 运行用户及 HTTP 健康检查。
+
+启动已发布镜像，替换下面的镜像地址：
+
+```sh
+docker run -d \
+  --name excel-watermark-demo \
+  --restart unless-stopped \
+  -p 18092:18092 \
+  ghcr.io/你的用户名/你的仓库名:latest
+```
+
+打开 `http://服务器IP:18092` 即可使用。修改访问端口只需改端口映射，例如 `-p 8080:18092`，再打开 `http://服务器IP:8080`。容器内端口保持 `18092`，无需设置其他环境变量，也无需挂载卷。
+
+GHCR 首次创建的包通常是私有的。匿名拉取时需要在 GitHub 的 Packages 设置中将镜像设为 Public；保留私有时，先使用具有 `read:packages` 权限的凭据登录 `ghcr.io`。
+
+本地构建与验证（需要 Docker、Python 3）：
+
+```sh
+docker build -t excel-watermark-demo:local .
+python scripts/smoke_container.py --image excel-watermark-demo:local
+docker run --rm -p 18092:18092 excel-watermark-demo:local
+```
+
+ARM64 主机上的验证命令加上 `--platform linux/arm64`。CI 使用 QEMU 在构建机上运行 ARM64 容器。
 
 ## 页面操作
 
@@ -71,6 +115,9 @@ src/main/java/com/example/watermark/
 src/main/resources/static/        页面，无前端构建
 src/test/                        定向测试
 scripts/verify-excel.ps1          可选：真实 Excel 打开及 PDF 导出验收
+scripts/smoke_container.py        HTTP / 容器冒烟检查，仅使用 Python 标准库
+Dockerfile                       多阶段构建，内置中文字体
+.github/workflows/docker-publish.yml  双架构验证并发布 GHCR
 ```
 
 ## 验证

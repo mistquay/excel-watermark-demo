@@ -11,11 +11,17 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Locale;
 
 @Component
 public class WatermarkRenderer {
     // 120 DPI：文字字号使用 point；打印图片通过 VML 按 point 设置物理尺寸。
     public static final double PIXELS_PER_POINT = 120.0 / 72;
+    private static final String FONT_FAMILY = Arrays.stream(GraphicsEnvironment.getLocalGraphicsEnvironment()
+                    .getAvailableFontFamilyNames(Locale.ROOT))
+            .filter(name -> name.equals("Microsoft YaHei") || name.equals("Noto Sans CJK SC"))
+            .findFirst().orElse(Font.SANS_SERIF);
 
     public BufferedImage readLogo(byte[] bytes) throws IOException {
         if (bytes == null || bytes.length == 0) return null;
@@ -48,7 +54,7 @@ public class WatermarkRenderer {
             graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
             graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
             graphics.setComposite(AlphaComposite.SrcOver.derive((float) options.opacity()));
-            graphics.setFont(new Font("Microsoft YaHei", Font.BOLD, (int) Math.round(options.fontSize() * PIXELS_PER_POINT)));
+            graphics.setFont(new Font(FONT_FAMILY, Font.BOLD, (int) Math.round(options.fontSize() * PIXELS_PER_POINT)));
             graphics.setColor(Color.decode(options.color()));
             String[] lines = options.text().split("\\R", -1);
             FontMetrics metrics = graphics.getFontMetrics();

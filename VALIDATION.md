@@ -33,3 +33,11 @@
 结构化结果：`output/verification/excel-results.json`、`pdf-results.json`、`render-results.json`。生成样本和 PDF 均在同一目录中，不纳入 Git。
 
 真实打印机未执行纸质输出；打印能力通过 Excel 的同一页面层 PDF 输出验证。WPS、LibreOffice 和第三方转换服务未验收。
+
+## Docker 与 CI 配置验证（2026-11-13）
+
+- 新增 Docker 多阶段构建、中文字体、单端口 `18092`、非 root 用户和健康检查；本地默认监听地址保持 `127.0.0.1`，容器通过环境变量监听 `0.0.0.0`。
+- 上游镜像清单已核实：`maven:3.9.11-eclipse-temurin-21` 与 `eclipse-temurin:21-jre-noble` 均包含 Linux amd64、arm64。
+- GitHub Actions 经 `actionlint 1.7.12` 检查通过；所用 action 版本已经核实存在。
+- `mvnw.cmd test`：12 项测试通过；新增 Python 冒烟脚本语法及本机 HTTP 模式检查通过，覆盖页面、静态资源、示例、上传、中文水印预览及三种 Excel 下载模式。
+- 当前本机没有 Docker，因此没有实际执行容器构建、ARM64 容器运行或 GHCR 发布。工作流会在发布前启动两个架构的镜像并运行同一冒烟脚本；首次推送后的 Actions 结果才是镜像构建与发布的实际验收依据。
