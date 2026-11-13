@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T14:47:21.5855708+08:00",
+  "title": "Design System: Excel 水印工坊",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "正文深绿",
+        "tonalRamp": [
+          "oklch(15% 0.0093 176.1)",
+          "oklch(26% 0.0170 176.1)",
+          "oklch(38% 0.0247 176.1)",
+          "oklch(49% 0.0309 176.1)",
+          "oklch(61% 0.0309 176.1)",
+          "oklch(72% 0.0263 176.1)",
+          "oklch(84% 0.0170 176.1)",
+          "oklch(95% 0.0062 176.1)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "辅助灰绿",
+        "tonalRamp": [
+          "oklch(15% 0.0072 165.3)",
+          "oklch(26% 0.0132 165.3)",
+          "oklch(38% 0.0193 165.3)",
+          "oklch(49% 0.0241 165.3)",
+          "oklch(61% 0.0241 165.3)",
+          "oklch(72% 0.0205 165.3)",
+          "oklch(84% 0.0132 165.3)",
+          "oklch(95% 0.0048 165.3)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "操作深绿",
+        "tonalRamp": [
+          "oklch(15% 0.0233 166.9)",
+          "oklch(26% 0.0427 166.9)",
+          "oklch(38% 0.0621 166.9)",
+          "oklch(49% 0.0776 166.9)",
+          "oklch(61% 0.0776 166.9)",
+          "oklch(72% 0.0659 166.9)",
+          "oklch(84% 0.0427 166.9)",
+          "oklch(95% 0.0155 166.9)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "选中浅绿",
+        "tonalRamp": [
+          "oklch(15% 0.0037 157.0)",
+          "oklch(26% 0.0068 157.0)",
+          "oklch(38% 0.0099 157.0)",
+          "oklch(49% 0.0124 157.0)",
+          "oklch(61% 0.0124 157.0)",
+          "oklch(72% 0.0106 157.0)",
+          "oklch(84% 0.0068 157.0)",
+          "oklch(95% 0.0025 157.0)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "分隔灰绿",
+        "tonalRamp": [
+          "oklch(15% 0.0035 153.7)",
+          "oklch(26% 0.0065 153.7)",
+          "oklch(38% 0.0094 153.7)",
+          "oklch(49% 0.0118 153.7)",
+          "oklch(61% 0.0118 153.7)",
+          "oklch(72% 0.0100 153.7)",
+          "oklch(84% 0.0065 153.7)",
+          "oklch(95% 0.0024 153.7)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "页面浅底",
+        "tonalRamp": [
+          "oklch(15% 0.0015 145.5)",
+          "oklch(26% 0.0028 145.5)",
+          "oklch(38% 0.0041 145.5)",
+          "oklch(49% 0.0051 145.5)",
+          "oklch(61% 0.0051 145.5)",
+          "oklch(72% 0.0043 145.5)",
+          "oklch(84% 0.0028 145.5)",
+          "oklch(95% 0.0010 145.5)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "面板白",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.0)",
+          "oklch(26% 0.0000 0.0)",
+          "oklch(38% 0.0000 0.0)",
+          "oklch(49% 0.0000 0.0)",
+          "oklch(61% 0.0000 0.0)",
+          "oklch(72% 0.0000 0.0)",
+          "oklch(84% 0.0000 0.0)",
+          "oklch(95% 0.0000 0.0)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "悬停深绿",
+        "tonalRamp": [
+          "oklch(15% 0.0195 166.0)",
+          "oklch(26% 0.0358 166.0)",
+          "oklch(38% 0.0520 166.0)",
+          "oklch(49% 0.0651 166.0)",
+          "oklch(61% 0.0651 166.0)",
+          "oklch(72% 0.0553 166.0)",
+          "oklch(84% 0.0358 166.0)",
+          "oklch(95% 0.0130 166.0)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "焦点绿",
+        "tonalRamp": [
+          "oklch(15% 0.0187 164.1)",
+          "oklch(26% 0.0343 164.1)",
+          "oklch(38% 0.0499 164.1)",
+          "oklch(49% 0.0624 164.1)",
+          "oklch(61% 0.0624 164.1)",
+          "oklch(72% 0.0530 164.1)",
+          "oklch(84% 0.0343 164.1)",
+          "oklch(95% 0.0125 164.1)"
+        ]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "错误红",
+        "tonalRamp": [
+          "oklch(15% 0.0466 24.8)",
+          "oklch(26% 0.0855 24.8)",
+          "oklch(38% 0.1243 24.8)",
+          "oklch(49% 0.1554 24.8)",
+          "oklch(61% 0.1554 24.8)",
+          "oklch(72% 0.1321 24.8)",
+          "oklch(84% 0.0855 24.8)",
+          "oklch(95% 0.0311 24.8)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "输入边线",
+        "tonalRamp": [
+          "oklch(15% 0.0051 151.1)",
+          "oklch(26% 0.0094 151.1)",
+          "oklch(38% 0.0136 151.1)",
+          "oklch(49% 0.0170 151.1)",
+          "oklch(61% 0.0170 151.1)",
+          "oklch(72% 0.0145 151.1)",
+          "oklch(84% 0.0094 151.1)",
+          "oklch(95% 0.0034 151.1)"
+        ]
+      },
+      "preview-ground": {
+        "role": "neutral",
+        "displayName": "预览浅绿",
+        "tonalRamp": [
+          "oklch(15% 0.0028 150.7)",
+          "oklch(26% 0.0051 150.7)",
+          "oklch(38% 0.0074 150.7)",
+          "oklch(49% 0.0092 150.7)",
+          "oklch(61% 0.0092 150.7)",
+          "oklch(72% 0.0078 150.7)",
+          "oklch(84% 0.0051 150.7)",
+          "oklch(95% 0.0018 150.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "主标题",
+        "purpose": "页面开头的主标题；700px 以下缩为 25px。"
+      },
+      "title": {
+        "displayName": "区块标题",
+        "purpose": "设置分区和效果预览标题。"
+      },
+      "body": {
+        "displayName": "正文",
+        "purpose": "默认正文与继承系统字体的表单控件。"
+      },
+      "label": {
+        "displayName": "标签",
+        "purpose": "字段标签，辅助文字与表格同用 12px 尺度。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "segment-selected",
+        "value": "0 1px 3px #1e493214",
+        "purpose": "水印类型分段控件的选中项。"
+      },
+      {
+        "name": "preview-paper",
+        "value": "0 4px 12px #243b350a",
+        "purpose": "预览白纸与舞台之间的轻层次。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "background-feedback",
+        "value": "background 0.15s ease-out",
+        "purpose": "按钮悬停和上传区拖放背景反馈。"
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }",
+        "purpose": "减少动画偏好下关闭过渡并使用直接滚动。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "preview-sticky-min",
+        "value": "1100px"
+      },
+      {
+        "name": "compact-max",
+        "value": "900px"
+      },
+      {
+        "name": "single-column-max",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "主操作按钮",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "生成并下载 Excel，使用全宽主操作；默认在未上传文件时禁用。",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">生成并下载 Excel<svg viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M10 3v10m-4-4 4 4 4-4M3 13v4h14v-4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /></svg></button>",
+      "css": ".ds-button-primary { display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 47px; border: 1px solid transparent; border-radius: 6px; padding: 10px 17px; font: 600 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; background: var(--accent, #23664f); color: var(--white, #fff); cursor: pointer; transition: background 0.15s ease-out; } .ds-button-primary svg { width: 20px; height: 20px; flex-shrink: 0; } .ds-button-primary:hover:enabled { background: #194e3b; } .ds-button-primary:focus-visible { outline: 3px solid #7aab94; outline-offset: 3px; } .ds-button-primary:disabled { opacity: 0.5; cursor: not-allowed; } @media (prefers-reduced-motion: reduce) { .ds-button-primary { transition: none !important; } }"
+    },
+    {
+      "name": "次操作按钮",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "使用示例 Excel 的次操作。",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">使用示例 Excel <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-button-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 43px; border: 1px solid #cfdcd3; border-radius: 6px; padding: 10px 17px; font: 600 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; background: var(--white, #fff); color: var(--accent, #23664f); white-space: nowrap; cursor: pointer; transition: background 0.15s ease-out; } .ds-button-secondary:hover { background: var(--accent-soft, #e9f2ec); } .ds-button-secondary:focus-visible { outline: 3px solid #7aab94; outline-offset: 3px; } .ds-button-secondary:disabled { opacity: 0.5; cursor: not-allowed; } @media (max-width: 700px) { .ds-button-secondary { font-size: 12px; min-height: 38px; } } @media (prefers-reduced-motion: reduce) { .ds-button-secondary { transition: none !important; } }"
+    },
+    {
+      "name": "水印文字输入",
+      "kind": "input",
+      "refersTo": "textarea",
+      "description": "带标签、可纵向调整的文字输入。",
+      "html": "<label class=\"ds-field-label\" for=\"ds-watermark-text\">水印文字</label><textarea class=\"ds-textarea\" id=\"ds-watermark-text\" rows=\"2\" maxlength=\"160\">内部资料 · 仅供演示</textarea>",
+      "css": ".ds-field-label { display: flex; margin-bottom: 7px; font: 500 12px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; color: var(--ink, #243b35); } .ds-textarea { width: 100%; min-height: 68px; padding: 9px 10px; border: 1px solid #ced9d0; border-radius: 5px; background: var(--white, #fff); color: var(--ink, #243b35); caret-color: var(--accent, #23664f); font: 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; resize: vertical; } .ds-textarea:focus-visible { outline: 3px solid #7aab94; outline-offset: 3px; }"
+    },
+    {
+      "name": "预览场景页签",
+      "kind": "nav",
+      "refersTo": "tab-selected",
+      "description": "打开表格与打印/PDF 两种示意，选中状态由 aria-selected 表达。",
+      "html": "<div class=\"ds-preview-tabs\" role=\"tablist\" aria-label=\"预览场景\"><button type=\"button\" role=\"tab\" aria-selected=\"true\">打开表格</button><button type=\"button\" role=\"tab\" aria-selected=\"false\">打印 / PDF</button></div>",
+      "css": ".ds-preview-tabs { display: flex; gap: 2px; width: max-content; padding: 2px; border: 1px solid var(--line, #dce4de); border-radius: 5px; } .ds-preview-tabs button { border: 0; border-radius: 3px; padding: 6px 13px; background: transparent; color: var(--muted, #596a62); font: 12px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; white-space: nowrap; cursor: pointer; } .ds-preview-tabs button[aria-selected='true'] { background: var(--accent-soft, #e9f2ec); color: var(--accent, #23664f); font-weight: 600; } .ds-preview-tabs button:focus-visible { outline: 3px solid #7aab94; outline-offset: 3px; } @media (max-width: 900px) { .ds-preview-tabs button { padding: 6px 8px; } }"
+    },
+    {
+      "name": "工具标记",
+      "kind": "chip",
+      "description": "页头的静态工具说明标记。",
+      "html": "<span class=\"ds-header-note\">本地验证工具</span>",
+      "css": ".ds-header-note { display: inline-block; border: 1px solid var(--line, #dce4de); border-radius: 5px; padding: 4px 10px; font: 12px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; color: var(--muted, #596a62); } @media (max-width: 700px) { .ds-header-note { padding: 3px 6px; } }"
+    },
+    {
+      "name": "设置面板",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "白底、细边框、无阴影的设置容器。",
+      "html": "<aside class=\"ds-settings-panel\" aria-label=\"水印设置\"><section class=\"ds-settings-section\"><h2>水印内容</h2><p>内部资料 · 仅供演示</p></section></aside>",
+      "css": ".ds-settings-panel { border: 1px solid var(--line, #dce4de); border-radius: var(--radius, 8px); overflow: hidden; background: var(--white, #fff); color: var(--ink, #243b35); font: 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; } .ds-settings-section { padding: 22px 24px; border-bottom: 1px solid var(--line, #dce4de); } .ds-settings-section h2 { margin: 0 0 15px; font-size: 15px; line-height: 1.4; font-weight: 650; } .ds-settings-section p { margin: 0; } @media (max-width: 900px) { .ds-settings-section { padding: 20px 18px; } } @media (max-width: 700px) { .ds-settings-section { padding: 20px; } }"
+    },
+    {
+      "name": "水印类型分段选择",
+      "kind": "custom",
+      "description": "文字、图片、组合三种类型，保持原生单选键盘交互。",
+      "html": "<div class=\"ds-segmented\" aria-label=\"水印类型\"><label><input type=\"radio\" name=\"ds-type\" checked><span>文字</span></label><label><input type=\"radio\" name=\"ds-type\"><span>图片</span></label><label><input type=\"radio\" name=\"ds-type\"><span>文字 + 图片</span></label></div>",
+      "css": ".ds-segmented { display: flex; padding: 3px; border: 1px solid #e2e8e3; border-radius: 6px; background: #f0f3f0; font: 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; } .ds-segmented label { position: relative; flex: 1; text-align: center; cursor: pointer; white-space: nowrap; } .ds-segmented input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-segmented span { display: block; padding: 7px 2px; border-radius: 4px; color: var(--muted, #596a62); font-size: 12px; } .ds-segmented input:checked + span { color: var(--accent, #23664f); background: #fff; box-shadow: 0 1px 3px #1e493214; font-weight: 600; } .ds-segmented input:focus-visible + span { outline: 2px solid var(--accent, #23664f); }"
+    },
+    {
+      "name": "上传区域",
+      "kind": "custom",
+      "description": "虚线文件入口，拖入状态加深背景；焦点进入文件控件时勾勒整个区域。",
+      "html": "<div class=\"ds-upload-zone\"><label class=\"ds-upload-label\" for=\"ds-excel-file\">选择 Excel 文件 <span>浏览文件</span></label><p>也可以拖放到这里 · .xlsx 格式 · 最大 20MB</p><input class=\"ds-upload-input\" id=\"ds-excel-file\" type=\"file\" accept=\".xlsx\" aria-label=\"上传 Excel 文件\"></div>",
+      "css": ".ds-upload-zone { position: relative; min-height: 100px; padding: 22px 26px; border: 1px dashed #a8bdb0; border-radius: var(--radius, 8px); background: #edf4ee; color: var(--ink, #243b35); font: 14px/1.55 'Segoe UI', 'Microsoft YaHei', sans-serif; transition: background 0.15s ease-out; } .ds-upload-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; cursor: pointer; overflow-wrap: anywhere; } .ds-upload-label span { flex-shrink: 0; border-bottom: 1px solid #a2c3ad; font-size: 13px; font-weight: 500; color: var(--accent, #23664f); } .ds-upload-zone p { margin: 4px 0 0; font-size: 12px; color: #536d60; } .ds-upload-input { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; } .ds-upload-zone:focus-within { outline: 3px solid #7aab94; outline-offset: 3px; } .ds-upload-zone.ds-dragging { background: #d4e8db; outline: 2px solid var(--accent, #23664f); } @media (max-width: 700px) { .ds-upload-zone { padding: 18px 16px; } .ds-upload-label { gap: 8px; font-size: 13px; } } @media (prefers-reduced-motion: reduce) { .ds-upload-zone { transition: none !important; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "本地验证工具",
+    "overview": "页面采用现有办公工具的浅色界面：系统中文字体、白色表单、淡绿预览底和深绿色主操作。设计服务于用户要求的简单独立验证工程，直接呈现文件、设置和表格示意。\n\n本文件从 `src/main/resources/static/style.css` 与 `index.html` 提取当前实现，供后续维护保持一致，不代表新增的品牌约定或验收结论。",
+    "keyCharacteristics": [
+      "系统字体和紧凑的表单层级。",
+      "白色面板、细边框和小圆角。",
+      "设置与预览在桌面并排，在手机依次排列。"
+    ],
+    "rules": [],
+    "dos": [
+      "**Do** 沿用现有系统字体、绿色操作色和小圆角，保持验证界面简单。",
+      "**Do** 保留键盘焦点、选中状态和减少动画规则。",
+      "**Do** 在手机使用单列，并让宽表格在容器内部滚动。"
+    ],
+    "donts": [
+      "**Don't** 为这个独立验证工程增加设计访谈或品牌审批步骤。",
+      "**Don't** 将水印内容的颜色预设当作界面主题色。",
+      "**Don't** 用预览示意替代实际 Excel 打开、打印和 PDF 导出的验证。"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+/target/
+/output/
+/.playwright-cli/
+/.impeccable/review/
+*.log
+.idea/
+*.iml

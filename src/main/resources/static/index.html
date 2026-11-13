@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Excel 水印工坊</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/" aria-label="Excel 水印工坊首页">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path
+            d="M8 3h12l6 6v20H8z"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path d="M20 3v7h6M4 13h16v12H4z" fill="currentColor" />
+          <path d="m9 16 6 6m0-6-6 6" stroke="white" stroke-width="1.7" />
+        </svg>
+        <span>Excel 水印工坊</span>
+      </a>
+      <span class="header-note">本地验证工具</span>
+    </header>
+
+    <main>
+      <div class="intro">
+        <div>
+          <h1>给表格，添一层标记。</h1>
+          <p>上传 Excel，调整水印，下载后在实际场景中验证。</p>
+        </div>
+        <button id="sample-button" class="button secondary" type="button">
+          使用示例 Excel <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+
+      <div id="drop-zone" class="upload-zone">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div>
+          <label for="excel-file" class="upload-label"
+            ><span id="file-title">选择 Excel 文件</span
+            ><span class="upload-action">浏览文件</span></label
+          >
+          <p id="file-description">也可以拖放到这里 · .xlsx 格式 · 最大 20MB</p>
+        </div>
+        <input
+          id="excel-file"
+          type="file"
+          accept=".xlsx"
+          class="file-input"
+          aria-label="上传 Excel 文件"
+        />
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <div class="workspace">
+        <aside class="settings" aria-label="水印设置">
+          <form id="settings-form">
+            <section>
+              <h2>水印内容</h2>
+              <div class="segmented" aria-label="水印类型">
+                <label
+                  ><input type="radio" name="type" value="TEXT" checked /><span
+                    >文字</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="type" value="IMAGE" /><span
+                    >图片</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="type" value="BOTH" /><span
+                    >文字 + 图片</span
+                  ></label
+                >
+              </div>
+              <div id="text-field" class="field">
+                <label for="text">水印文字</label>
+                <textarea id="text" name="text" rows="2" maxlength="160">
+内部资料 · 仅供演示</textarea>
+              </div>
+              <div id="logo-field" class="field" hidden>
+                <label for="logo">水印图片</label>
+                <input
+                  id="logo"
+                  name="logo"
+                  type="file"
+                  accept="image/png,image/jpeg"
+                />
+                <p class="help">PNG / JPEG，最大 5MB；建议使用透明底 Logo。</p>
+              </div>
+            </section>
+
+            <section>
+              <h2>出现在哪里</h2>
+              <div class="visibility-options">
+                <label
+                  ><input type="radio" name="visibility" value="SCREEN" /><span
+                    ><strong>仅打开表格时可见</strong
+                    ><small>普通视图显示，打印和 PDF 不显示</small></span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="visibility" value="PRINT" /><span
+                    ><strong>打印 / 转 PDF 时可见</strong
+                    ><small>普通视图不显示，打印预览时显示</small></span
+                  ></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="visibility"
+                    value="BOTH"
+                    checked
+                  /><span
+                    ><strong>两个场景都可见</strong
+                    ><small>查看、打印、导出 PDF 均保留</small></span
+                  ></label
+                >
+              </div>
+            </section>
+
+            <section>
+              <h2>外观与排列</h2>
+              <div class="field color-field">
+                <label for="color">颜色</label>
+                <div class="color-options">
+                  <button
+                    type="button"
+                    class="swatch"
+                    data-color="#426b5b"
+                    style="--swatch: #426b5b"
+                    aria-label="绿色水印"
+                  ></button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    data-color="#486eae"
+                    style="--swatch: #486eae"
+                    aria-label="蓝色水印"
+                  ></button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    data-color="#b44c4c"
+                    style="--swatch: #b44c4c"
+                    aria-label="红色水印"
+                  ></button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    data-color="#555e68"
+                    style="--swatch: #555e68"
+                    aria-label="灰色水印"
+                  ></button>
+                  <input
+                    id="color"
+                    name="color"
+                    type="color"
+                    value="#426b5b"
+                    aria-label="自定义水印颜色"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="opacity"
+                  >不透明度
+                  <output id="opacity-value" for="opacity">18%</output></label
+                ><input
+                  id="opacity"
+                  name="opacity"
+                  type="range"
+                  min="0.05"
+                  max="0.8"
+                  step="0.01"
+                  value="0.18"
+                />
+              </div>
+              <div class="field">
+                <label for="fontSize"
+                  >字号 / 图片大小
+                  <output id="fontSize-value" for="fontSize"
+                    >32 pt</output
+                  ></label
+                ><input
+                  id="fontSize"
+                  name="fontSize"
+                  type="range"
+                  min="18"
+                  max="80"
+                  value="32"
+                />
+              </div>
+              <div class="field">
+                <label for="angle"
+                  >旋转角度
+                  <output id="angle-value" for="angle">-30°</output></label
+                ><input
+                  id="angle"
+                  name="angle"
+                  type="range"
+                  min="-60"
+                  max="60"
+                  value="-30"
+                />
+              </div>
+              <div class="two-fields">
+                <div class="field">
+                  <label for="layout">排列方式</label
+                  ><select id="layout" name="layout">
+                    <option value="tile">重复平铺</option>
+                    <option value="single">画布居中</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="density">间隔</label
+                  ><select id="density" name="density">
+                    <option value="sparse">疏</option>
+                    <option value="normal" selected>适中</option>
+                    <option value="dense">密</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section id="sheet-section" hidden>
+              <h2>应用到工作表</h2>
+              <div id="sheet-options" class="sheet-options"></div>
+            </section>
+            <div class="export-actions">
+              <button
+                id="download-button"
+                type="submit"
+                class="button primary"
+                disabled
+              >
+                生成并下载 Excel
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path
+                    d="M10 3v10m-4-4 4 4 4-4M3 13v4h14v-4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <p class="help">上传后即可下载，文件仅在本机内存中处理。</p>
+            </div>
+          </form>
+        </aside>
+
+        <section class="preview-panel" aria-labelledby="preview-title">
+          <div class="preview-toolbar">
+            <h2 id="preview-title">效果预览</h2>
+            <div class="preview-tabs" role="tablist" aria-label="预览场景">
+              <button
+                id="screen-tab"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="preview-stage"
+                data-scene="screen"
+              >
+                打开表格</button
+              ><button
+                id="print-tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="preview-stage"
+                data-scene="print"
+              >
+                打印 / PDF
+              </button>
+            </div>
+          </div>
+          <div
+            id="preview-stage"
+            class="preview-stage"
+            role="tabpanel"
+            aria-labelledby="screen-tab"
+          >
+            <div id="preview-paper" class="preview-paper">
+              <div id="watermark-layer" class="watermark-layer"></div>
+              <div class="sheet-heading">
+                <span id="preview-sheet-title">设备巡检记录</span
+                ><small id="preview-source">合成示例内容</small>
+              </div>
+              <div class="table-wrap">
+                <table
+                  id="preview-table"
+                  aria-label="Excel 前 12 行预览"
+                ></table>
+              </div>
+              <div id="page-number" class="page-number" hidden>
+                第 1 页 · 预览示意
+              </div>
+            </div>
+          </div>
+          <div class="preview-bottom">
+            <label for="preview-sheet">预览工作表</label
+            ><select id="preview-sheet" aria-label="切换预览工作表" disabled>
+              <option>设备巡检记录（示例）</option></select
+            ><span id="scene-state">此场景显示水印</span>
+          </div>
+          <div class="notes">
+            <h3>下载后这样验证</h3>
+            <p id="verify-tip">
+              打开下载的 Excel 查看背景，再进入「文件 → 打印」；导出 PDF 时选择
+              Excel 的「导出 / 另存为 PDF」。
+            </p>
+            <p>
+              此处展示内容与水印示意，分页、位置以 Excel
+              为准。查看背景图会自然重复；打印水印使用页眉图片，打印和内置 PDF
+              导出共用配置。
+            </p>
+            <p>
+              演示会替换所选表的背景；打印模式会统一页眉图片及奇偶页设置。建议使用工作簿副本验证，WPS
+              / LibreOffice 的效果可能不同。
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="app-footer">
+      <span>Excel 水印验证工程</span
+      ><span>Java 21 / Apache POI · 无数据库依赖</span>
+    </footer>
+  </body>
+</html>
